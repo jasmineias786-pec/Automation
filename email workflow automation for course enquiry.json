@@ -1,0 +1,85 @@
+{
+  "name": "allah ki ibadat",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "5adfcae8-8db5-46f6-97af-0b9f14ba36c8",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.emailReadImap",
+      "typeVersion": 2.1,
+      "position": [
+        80,
+        128
+      ],
+      "id": "86122357-77ce-4b13-8b3e-36bddd711154",
+      "name": "Email Trigger (IMAP)",
+      "credentials": {
+        "imap": {
+          "id": "cxsWqeFdCbHJZWUQ",
+          "name": "IMAP account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "fromEmail": "jasmineias786@gmail.com",
+        "toEmail": "={{ $json.from }}",
+        "subject": "course details",
+        "html": "<p>Hello,</p>\n\n<p>Thank you for contacting us.</p>\n\n<p><b>Course:</b> Python Full Stack<br>\n<b>Duration:</b> 3 Months<br>\n<b>Fees:</b> ₹10,000<br>\n<b>Mode:</b> Online / Offline</p>\n\n<p>Reply for admission.</p>\n\n<p>Thank you.</p>",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2.1,
+      "position": [
+        304,
+        112
+      ],
+      "id": "cea6bae0-a892-4e10-883a-b10117dc34fc",
+      "name": "Send an Email",
+      "webhookId": "c07275a4-319d-40d7-9a17-6142d321f912",
+      "credentials": {
+        "smtp": {
+          "id": "eYZfdNWHNGenPCAx",
+          "name": "SMTP account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Email Trigger (IMAP)": {
+      "main": [
+        [
+          {
+            "node": "Send an Email",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "versionId": "82593c34-043b-4261-896c-78361213988a",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "486a99cb438caca9cd689165729996e90f64a40aa0cd7f298b5fad3af649b519"
+  },
+  "id": "G0Xhq74FFSnQ7hPy",
+  "tags": []
+}
